@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Food Order Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #1f4e79;
+        }
+
+        form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 550px;
+            border: 2px solid #1f4e79;
+            border-radius: 10px;
+        }
+
+        select,
+        input {
+            padding: 6px;
+            font-size: 14px;
+            border: 1px solid #999999;
+            border-radius: 4px;
+        }
+
+        .customer-row {
+            margin-bottom: 20px;
+        }
+
+        .food-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #1f4e79;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+        button:hover {
+            background-color: #163a5c;
+            }
+
+        .food-label {
+            width: 60px;
+        }
+
+        .food-row select {
+            width: 170px;
+        }
+
+        .food-row input {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Food Order Form</h1>
+
+    <form>
+
+        <h2>Place Your Order</h2>
+
+        <div class="customer-row">
+            <label for="name">Customer Name:</label>
+            <input type="text" id="name" name="customerName">
+        </div>
+
+        <div class="food-row">
+            <label class="food-label" for="pizza">Pizza:</label>
+
+            <select id="pizza" name="pizza">
+                <option value="cheese">Cheese</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="sausage">Sausage</option>
+                <option value="supreme">Supreme</option>
+            </select>
+
+            <label for="pizzaQuantity">Quantity:</label>
+            <input type="text" id="pizzaQuantity" name="pizzaQuantity">
+        </div>
+
+        <div class="food-row">
+            <label class="food-label" for="burger">Burger:</label>
+
+            <select id="burger" name="burger">
+                <option value="hamburger">Hamburger</option>
+                <option value="cheeseburger">Cheeseburger</option>
+                <option value="baconCheeseburger">Bacon Cheeseburger</option>
+            </select>
+
+            <label for="burgerQuantity">Quantity:</label>
+            <input type="text" id="burgerQuantity" name="burgerQuantity">
+        </div>
+
+        <div class="food-row">
+            <label class="food-label" for="side">Side:</label>
+
+            <select id="side" name="side">
+                <option value="fries">French Fries</option>
+                <option value="onionRings">Onion Rings</option>
+                <option value="salad">Side Salad</option>
+            </select>
+
+            <label for="sideQuantity">Quantity:</label>
+            <input type="text" id="sideQuantity" name="sideQuantity">
+        </div>
+
+        <div class="food-row">
+            <label class="food-label" for="drink">Drink:</label>
+
+            <select id="drink" name="drink">
+                <option value="coke">Coke</option>
+                <option value="sprite">Sprite</option>
+                <option value="lemonade">Lemonade</option>
+                <option value="water">Water</option>
+            </select>
+
+            <label for="drinkQuantity">Quantity:</label>
+            <input type="text" id="drinkQuantity" name="drinkQuantity">
+        </div>
+
+        <button type="submit">Place Order</button>
+
+    </form>
+
+</body>
+
+</html>
