@@ -1,0 +1,43 @@
+@page
+@model Exercise2.Pages_JobTitles.DetailsModel
+
+@{
+    ViewData["Title"] = "Job Title Details";
+}
+
+<h1>Job Title Details</h1>
+
+<h4>@Model.JobTitle.TitleName</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.TitleName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.JobTitle.TitleName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.Description)
+    </dt>
+    <dd class="col-sm-9" style="white-space: pre-line;">
+        @Html.DisplayFor(model => model.JobTitle.Description)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.Company)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.JobTitle.Company!.CompanyName)
+    </dd>
+</dl>
+
+<div>
+    <a asp-page="./Edit"
+       asp-route-id="@Model.JobTitle.Id"
+       class="btn btn-primary">Edit Job Title</a>
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Back to All Job Titles</a>
+</div>

@@ -1,0 +1,39 @@
+@page
+@model Exercise2.Pages_Industries.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Industry";
+}
+
+<h1>Delete Industry</h1>
+
+<h3>
+    Are you sure you want to delete @Model.Industry.IndustryName?
+</h3>
+
+<p class="text-danger">
+    An industry with related companies or candidates should not be deleted
+    until those records have been reassigned or removed.
+</p>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Industry.IndustryName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Industry.IndustryName)
+    </dd>
+</dl>
+
+<form method="post">
+    <input type="hidden" asp-for="Industry.Id" />
+
+    <input type="submit"
+           value="Delete Industry"
+           class="btn btn-danger" />
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Cancel</a>
+</form>

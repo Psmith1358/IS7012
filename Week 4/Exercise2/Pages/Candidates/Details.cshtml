@@ -1,0 +1,64 @@
+@page
+@model Exercise2.Pages_Candidates.DetailsModel
+
+@{
+    ViewData["Title"] = "Candidate Details";
+}
+
+<h1>Candidate Details</h1>
+
+<h4>@Model.Candidate.FirstName @Model.Candidate.LastName</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.FirstName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.FirstName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.LastName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.LastName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.Email)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.Email)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.JobTitle)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.JobTitle!.TitleName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.Company)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.Company!.CompanyName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Candidate.Industry)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Candidate.Industry!.IndustryName)
+    </dd>
+</dl>
+
+<div>
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Candidate.Id"
+       class="btn btn-primary">Edit Candidate</a>
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Back to All Candidates</a>
+</div>

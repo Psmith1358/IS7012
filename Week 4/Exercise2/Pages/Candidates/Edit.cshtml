@@ -1,0 +1,92 @@
+@page
+@model Exercise2.Pages_Candidates.EditModel
+
+@{
+    ViewData["Title"] = "Edit Candidate";
+}
+
+<h1>Edit Candidate</h1>
+
+<h4>@Model.Candidate.FirstName @Model.Candidate.LastName</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Candidate.Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.FirstName" class="control-label"></label>
+                <input asp-for="Candidate.FirstName" class="form-control" />
+                <span asp-validation-for="Candidate.FirstName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.LastName" class="control-label"></label>
+                <input asp-for="Candidate.LastName" class="form-control" />
+                <span asp-validation-for="Candidate.LastName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.Email" class="control-label"></label>
+                <input asp-for="Candidate.Email" class="form-control" />
+                <span asp-validation-for="Candidate.Email"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.JobTitleId" class="control-label"></label>
+                <select asp-for="Candidate.JobTitleId"
+                        class="form-control"
+                        asp-items="ViewBag.JobTitleId">
+                    <option value="">Select a job title</option>
+                </select>
+                <span asp-validation-for="Candidate.JobTitleId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.CompanyId" class="control-label"></label>
+                <select asp-for="Candidate.CompanyId"
+                        class="form-control"
+                        asp-items="ViewBag.CompanyId">
+                    <option value="">Select a company</option>
+                </select>
+                <span asp-validation-for="Candidate.CompanyId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Candidate.IndustryId" class="control-label"></label>
+                <select asp-for="Candidate.IndustryId"
+                        class="form-control"
+                        asp-items="ViewBag.IndustryId">
+                    <option value="">Select an industry</option>
+                </select>
+                <span asp-validation-for="Candidate.IndustryId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit"
+                       value="Save Changes"
+                       class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-page="./Details" asp-route-id="@Model.Candidate.Id">View Details</a> |
+    <a asp-page="./Index">Back to All Candidates</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

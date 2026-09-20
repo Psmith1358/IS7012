@@ -1,0 +1,77 @@
+@page
+@model Exercise2.Pages_Companies.DetailsModel
+
+@{
+    ViewData["Title"] = "Company Details";
+}
+
+<h1>Company Details</h1>
+
+<h4>@Model.Company.CompanyName</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Company.CompanyName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Company.CompanyName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Company.Location)
+    </dt>
+    <dd class="col-sm-9" style="white-space: pre-line;">
+        @Html.DisplayFor(model => model.Company.Location)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Company.Industry)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Company.Industry!.IndustryName)
+    </dd>
+</dl>
+
+<h2 class="mt-4">Candidates</h2>
+
+@if (Model.Company.Candidates.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Email Address</th>
+                <th>Job Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var candidate in Model.Company.Candidates)
+            {
+                <tr>
+                    <td>@candidate.FirstName @candidate.LastName</td>
+                    <td>@candidate.Email</td>
+                    <td>@candidate.JobTitle?.TitleName</td>
+                    <td>
+                        <a asp-page="/Candidates/Details"
+                           asp-route-id="@candidate.Id">View Candidate</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No candidates are currently associated with this company.</p>
+}
+
+<div class="mt-3">
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Company.Id"
+       class="btn btn-primary">Edit Company</a>
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Back to All Companies</a>
+</div>

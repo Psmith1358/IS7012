@@ -1,0 +1,53 @@
+@page
+@model Exercise2.Pages_JobTitles.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Job Title";
+}
+
+<h1>Delete Job Title</h1>
+
+<h3>
+    Are you sure you want to delete @Model.JobTitle.TitleName?
+</h3>
+
+<p class="text-danger">
+    A job title assigned to candidates should not be deleted until those
+    candidates have been reassigned or removed.
+</p>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.TitleName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.JobTitle.TitleName)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.Description)
+    </dt>
+    <dd class="col-sm-9" style="white-space: pre-line;">
+        @Html.DisplayFor(model => model.JobTitle.Description)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.JobTitle.Company)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.JobTitle.Company!.CompanyName)
+    </dd>
+</dl>
+
+<form method="post">
+    <input type="hidden" asp-for="JobTitle.Id" />
+
+    <input type="submit"
+           value="Delete Job Title"
+           class="btn btn-danger" />
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Cancel</a>
+</form>

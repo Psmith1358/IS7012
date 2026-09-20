@@ -1,0 +1,29 @@
+@page
+@model Exercise2.Pages_Industries.DetailsModel
+
+@{
+    ViewData["Title"] = "Industry Details";
+}
+
+<h1>Industry Details</h1>
+
+<h4>@Model.Industry.IndustryName</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.Industry.IndustryName)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.Industry.IndustryName)
+    </dd>
+</dl>
+
+<div>
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Industry.Id"
+       class="btn btn-primary">Edit Industry</a>
+
+    <a asp-page="./Index"
+       class="btn btn-secondary">Back to All Industries</a>
+</div>
